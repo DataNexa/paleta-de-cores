@@ -1,0 +1,24 @@
+@mixin paleta($prefix, $value){
+  $luminosidades : (
+    "":50%,
+    "-light":65%,
+    "-super-light":85%,
+    "-dark":35%,
+    "-super-dark":15%
+    );
+  @each $sufix, $val in $luminosidades{
+    .fill-#{$prefix}#{$sufix} {
+      fill:hsl($value,100%,$val)
+    }
+    .bg-#{$prefix}#{$sufix} {
+      background-color:hsl($value,100%,$val)
+    }
+    .text-#{$prefix}#{$sufix}{
+      color:hsl($value,100%,$val)
+    }
+  }
+}
+
+@include paleta("red", 340);
+@include paleta("green", 140);
+@include paleta("blue", 210);
