@@ -19,6 +19,23 @@
   }
 }
 
+$sum:30;
+$sufixs:("", "-grafiti", "-light", "-super-light");
+$init:0;
+
+@each $suf in $sufixs {
+    .fill-black#{$suf} {
+      fill:hsl(0, 0, $init * 1%)
+    }
+    .bg-black#{$suf} {
+      background-color:hsl(0, 0, $init * 1%)
+    }
+    .text-black#{$suf}{
+      color:hsl(0, 0, $init * 1%)
+    }
+    $init: $init + $sum;
+}
+
 @include paleta("red", 340);
 @include paleta("green", 140);
 @include paleta("blue", 210);
